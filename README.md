@@ -1,17 +1,18 @@
 # Foundry Armor
 
-Simpler monster armor for the Nimble system in Foundry VTT (v14).
+Monster armor, vulnerability and resistance for the Nimble system in Foundry VTT (v14), as the 3.x books have them.
 
-- Medium Armor subtracts 10 from incoming damage.
-- Heavy Armor subtracts 20 from incoming damage.
+- Medium Armor monsters take –10 damage from each attack; Heavy Armor monsters take –20.
+- Critical hits ignore armor, as does damage marked "Ignores Armor".
+- Vulnerable: +10 damage vs a specific damage type.
+- Resistant: –10 damage vs a specific damage type (resistance from a feature's rule too).
 
-That is the only change. Everything else stays as Nimble has it:
-- Critical hits ignore armor.
-- Damage a monster is vulnerable to ignores its armor.
-- Damage marked "Ignores Armor" ignores it.
-- Heroes' Armor (the Defend value) is untouched.
+Each comes off (or adds on) once per attack. Vulnerability counts first, then armor, then resistance; immunity still
+means no damage. The card's target list shows each one, for example "Medium Armor (-10)" or
+"vulnerable to Fire (+10)".
 
-The armor comes off once per attack, before any other damage reduction, and shows on the card's target list as
-"Medium Armor (-10)" or "Heavy Armor (-20)".
+Heroes are untouched: their Armor is the Defend value, and their vulnerability and resistance stay as Nimble has them.
+
+Sources: Nimble Core Rules 3.2 (Monsters; Glossary) and the GM Guide 3.0 (Monster Armor).
 
 Needs: the Nimble system.

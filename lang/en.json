@@ -2,7 +2,12 @@
   "FOUNDRY_ARMOR": {
     "medium": "Medium Armor",
     "heavy": "Heavy Armor",
-    "mediumEffect": "<p>Medium Armor subtracts 10 from incoming damage. Critical hits ignore armor.</p>",
-    "heavyEffect": "<p>Heavy Armor subtracts 20 from incoming damage. Critical hits ignore armor.</p>"
+    "mediumEffect": "<p>Medium Armor monsters take –10 damage from each attack. Critical hits ignore armor, as do some spells/abilities.</p>",
+    "heavyEffect": "<p>Heavy Armor monsters take –20 damage from each attack. Critical hits ignore armor, as do some spells/abilities.</p>",
+    "armorBadge": "{armor} (-{value})",
+    "vulnerable": "vulnerable to {type} (+{value})",
+    "resistant": "resistant to {type} (-{value})",
+    "resistanceSource": "{label} (-{value})",
+    "resistanceGeneric": "resistance (-{value})"
   }
 }
