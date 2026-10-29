@@ -1,0 +1,13 @@
+{
+  "id": "foundry-armor",
+  "title": "Foundry Armor",
+  "description": "Simpler monster armor for Nimble: Medium Armor subtracts 10 from incoming damage, Heavy Armor subtracts 20.",
+  "version": "0.1.0",
+  "authors": [{ "name": "MrJamela" }],
+  "compatibility": { "minimum": "14", "verified": "14.369" },
+  "esmodules": ["scripts/main.js"],
+  "languages": [{ "lang": "en", "name": "English", "path": "lang/en.json" }],
+  "relationships": {
+    "systems": [{ "id": "nimble", "type": "system" }]
+  }
+}

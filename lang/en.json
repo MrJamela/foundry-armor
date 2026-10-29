@@ -1,0 +1,8 @@
+{
+  "FOUNDRY_ARMOR": {
+    "medium": "Medium Armor",
+    "heavy": "Heavy Armor",
+    "mediumEffect": "<p>Medium Armor subtracts 10 from incoming damage. Critical hits ignore armor.</p>",
+    "heavyEffect": "<p>Heavy Armor subtracts 20 from incoming damage. Critical hits ignore armor.</p>"
+  }
+}
