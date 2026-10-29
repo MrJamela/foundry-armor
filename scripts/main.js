@@ -106,6 +106,25 @@ function withFlatArmor(targetUuids, packets, run) {
   }
 }
 
+// Nimble badges vulnerable damage on an armored target "vulnerable to Fire (ignores armor)". Its vulnerabilities
+// were hidden while the numbers were worked out, so put that badge back on the target list.
+function addVulnerableBadges(breakdown, targetUuid) {
+  const actor = fromUuidSync(targetUuid)?.actor;
+  if (!breakdown?.components || !actor || !armorOf(actor)) return breakdown;
+  const vulnerabilities = getProperty(actor, 'system.attributes.damageVulnerabilities');
+  if (!Array.isArray(vulnerabilities)) return breakdown;
+  for (const component of breakdown.components) {
+    if (!component.damageType || !vulnerabilities.includes(component.damageType)) continue;
+    if (component.modifiers.some((modifier) => modifier.kind === 'vulnerable')) continue;
+    const type = component.typeLabel ?? component.damageType;
+    component.modifiers.unshift({
+      kind: 'vulnerable',
+      label: game.i18n.format('NIMBLE.damageModifiers.vulnerable', { type }),
+    });
+  }
+  return breakdown;
+}
+
 Hooks.once('setup', () => {
   if (game.system.id !== 'nimble') return;
 
@@ -134,7 +153,8 @@ Hooks.once('setup', () => {
     proto[name] = function (...args) {
       if (!this.isActivationCard?.()) return original.apply(this, args);
       const [targets, packets] = read(this, args);
-      return withFlatArmor(targets, packets, () => original.apply(this, args));
+      const result = withFlatArmor(targets, packets, () => original.apply(this, args));
+      return name === 'getDamageBreakdownForTarget' ? addVulnerableBadges(result, args[0]) : result;
     };
   }
 });
